@@ -39,5 +39,10 @@ module Forum
 
     # Enable the asset pipeline
     config.assets.enabled = true
+    
+    config.generators do |g|
+      g.fixture_replacement :factory_girl
+      g.template_engine :haml
+    end
   end
 end

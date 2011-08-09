@@ -5,6 +5,8 @@ gem 'rails', '3.1.0.rc5'
 gem 'sqlite3', '1.3.3'
 
 gem 'haml'
+gem "haml-rails"
+gem 'rails3-generators'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,4 +30,5 @@ gem 'jquery-rails'
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
+  gem 'factory_girl_rails'
 end
