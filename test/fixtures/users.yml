@@ -1,15 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
-one:
-  login: MyString
-  email: MyString
-  password: MyString
-  admin: false
-  posts_count: 1
+aaron:
+  id: 1
+  login: aaron
+  email: aaron@email.com
+  password: testy
+  admin: true
+  posts_count: 2
+  created_at: <%= 5.days.ago.to_s :db %>
 
-two:
-  login: MyString
-  email: MyString
-  password: MyString
+sam:
+  id: 2
+  login: sam
+  email: sam@email.com
+  password: testy
   admin: false
-  posts_count: 1
+  posts_count: 2
+  created_at: <%= 4.days.ago.to_s :db %>
