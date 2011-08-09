@@ -41,7 +41,7 @@ module Forum
     config.assets.enabled = true
     
     config.generators do |g|
-      g.fixture_replacement :factory_girl
+      # g.fixture_replacement :factory_girl
       g.template_engine :haml
     end
   end
