@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  login: MyString
+  email: MyString
+  password: MyString
+  admin: false
+  posts_count: 1
+
+two:
+  login: MyString
+  email: MyString
+  password: MyString
+  admin: false
+  posts_count: 1
