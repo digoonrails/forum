@@ -1,0 +1,18 @@
+!!! XML
+!!! 1.1
+%html{:xmls => "http://www.w3.org/1999/xhtml"}
+  %head
+    = yield :stylesheet
+    = include_stylesheets :forum, :media => 'all'
+    = csrf_meta_tag
+
+    %title= page_title
+    
+    %meta{"http-equiv"=>"Content-Type", :content=>"application/x-www-form-urlencoded; charset=UTF-8"}
+    - unless content_for(:meta_description).blank?
+      %meta{:name => 'description', :content => content_for(:meta_description)
+
+  %body
+  
+  = include_javascripts :forum
+  = yield :javascript

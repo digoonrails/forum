@@ -1,3 +1,7 @@
+javascripts:
+  forum:
+    - app/assets/javascripts/application.js
+    
 stylesheets:
   forum:
-    - public/stylesheets/compiled/example.css
+    - app/assets/stylesheets/application.css
