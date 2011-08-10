@@ -1,0 +1,3 @@
+stylesheets:
+  forum:
+    - public/stylesheets/compiled/example.css

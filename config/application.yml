@@ -1,0 +1,23 @@
+development: &development
+  host: localhost:3000
+  mail:
+    address: smtp.ih.com.br
+    port: 25
+    authentication: plain
+    user_name: atendimento@fonip.com.br
+    password: pulapula
+  exception:
+    email: ["drianotadao@gmail.com", "rodrigo.pest@gmail.com"]
+    subject: [EXCEPTION]
+
+production:
+  host: forum.rubyonbr.org
+  mail:
+    address: smtp.ih.com.br
+    port: 25
+    authentication: plain
+    user_name: atendimento@fonip.com.br
+    password: pulapula
+  exception:
+    email: ["drianotadao@gmail.com", "rodrigo.pest@gmail.com"]
+    subject: [EXCEPTION]
