@@ -22,7 +22,8 @@ gem 'settingslogic', '2.0.6'
 gem 'friendly_id', '3.2.1.1'
 
 group :development do
-  gem "haml-rails", '0.3.4'  
+  gem "haml-rails", '0.3.4'
+  gem "cijoe", "0.9.2"
 end
 
 # Gems used only for assets and not required
