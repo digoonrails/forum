@@ -6,6 +6,7 @@ development: &development
     authentication: plain
     user_name: atendimento@fonip.com.br
     password: pulapula
+    enable_starttls_auto: true
   exception:
     email: ["drianotadao@gmail.com", "rodrigo.pest@gmail.com"]
     subject: [EXCEPTION]
@@ -18,6 +19,7 @@ production:
     authentication: plain
     user_name: atendimento@fonip.com.br
     password: pulapula
+    enable_starttls_auto: true    
   exception:
     email: ["drianotadao@gmail.com", "rodrigo.pest@gmail.com"]
     subject: [EXCEPTION]
