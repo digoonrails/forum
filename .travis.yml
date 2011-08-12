@@ -1,0 +1,6 @@
+before_script:
+  - "cp config/database.example.yml config/database.yml"
+
+script: "git submodule update --init && bundle exec rake test"
+rvm:
+  - 1.9.2

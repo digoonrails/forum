@@ -66,16 +66,18 @@ ActiveRecord::Schema.define(:version => 20110811040955) do
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "body"
-    t.boolean  "sticky",      :default => false
-    t.integer  "hits",        :default => 0
-    t.integer  "posts_count", :default => 0
-    t.datetime "replied_at"
+    t.integer  "good_karma_count", :default => 0
+    t.integer  "bad_karma_count",  :default => 0
     t.integer  "topic_id"
     t.integer  "user_id"
     t.integer  "forum_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "posts", ["forum_id"], :name => "index_posts_on_forum_id"
+  add_index "posts", ["topic_id"], :name => "index_posts_on_topic_id"
+  add_index "posts", ["user_id"], :name => "index_posts_on_user_id"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id"
@@ -89,15 +91,18 @@ ActiveRecord::Schema.define(:version => 20110811040955) do
 
   create_table "topics", :force => true do |t|
     t.boolean  "sticky",      :default => false
-    t.string   "title"
     t.integer  "hits",        :default => 0
     t.integer  "posts_count", :default => 0
+    t.string   "title"
     t.datetime "replied_at"
     t.integer  "forum_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "topics", ["forum_id"], :name => "index_topics_on_forum_id"
+  add_index "topics", ["user_id"], :name => "index_topics_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "login"
