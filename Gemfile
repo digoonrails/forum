@@ -42,11 +42,8 @@ end
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :development, :test do
+group :test do
   # Pretty printed test output
   gem 'turn', :require => false
-  gem 'autotest'
-  gem 'autotest-rails'
-  gem 'autotest-notification'
   gem 'factory_girl_rails'
 end
