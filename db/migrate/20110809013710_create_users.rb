@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.boolean   :admin
       t.integer   :posts_count
       
+      t.datetime  :last_login_at
       t.datetime  :last_seen_at
       t.string    :login_key
       t.datetime  :login_key_expires_at

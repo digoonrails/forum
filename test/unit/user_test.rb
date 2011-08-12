@@ -2,6 +2,12 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   
+  # Replace this with your real tests
+  test "display name" do
+    assert_not_equal users(:aaron).display_name, users(:aaron).login
+    assert_equal "sam", users(:sam).display_name
+  end
+  
   test "first user becomes admin" do
     User.delete_all
     u=User.create(:email => "bob@uol.com", :password => "zoegirl", :password_confirmation => "zoegirl")
