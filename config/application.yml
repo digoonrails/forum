@@ -1,4 +1,4 @@
-development: &development
+defaults: &defaults
   host: localhost:3000
   mail:
     address: smtp.ih.com.br
@@ -9,17 +9,16 @@ development: &development
     enable_starttls_auto: true
   exception:
     email: ["drianotadao@gmail.com", "rodrigo.pest@gmail.com"]
-    subject: [EXCEPTION]
+    subject: "[EXCEPTION]"
+
+development:
+  <<: *defaults
+    
+test:
+  <<: *defaults
 
 production:
-  host: forum.rubyonbr.org
-  mail:
-    address: smtp.ih.com.br
-    port: 25
-    authentication: plain
-    user_name: atendimento@fonip.com.br
-    password: pulapula
-    enable_starttls_auto: true    
-  exception:
-    email: ["drianotadao@gmail.com", "rodrigo.pest@gmail.com"]
-    subject: [EXCEPTION]
+  <<: *defaults
+    
+# cucumber:
+# <<: *defaults
