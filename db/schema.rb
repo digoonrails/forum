@@ -106,10 +106,19 @@ ActiveRecord::Schema.define(:version => 20110811040955) do
 
   create_table "users", :force => true do |t|
     t.string   "login"
+    t.string   "display_name"
     t.string   "email"
     t.string   "password"
     t.boolean  "admin"
     t.integer  "posts_count"
+    t.datetime "last_seen_at"
+    t.string   "login_key"
+    t.datetime "login_key_expires_at"
+    t.string   "aim"
+    t.string   "yahoo"
+    t.string   "google_talk"
+    t.string   "msn"
+    t.string   "website"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
