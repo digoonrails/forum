@@ -1,0 +1,8 @@
+Status "!http://travis-ci.org/digoonrails/forum.png?branch=master,staging,production!":http://travis-ci.org/digoonrails/forum 
+
+h1. Welcome to Forum
+
+Our goal is to update the version of rubyonbr forum for the latest version.
+
+
+
