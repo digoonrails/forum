@@ -6,6 +6,11 @@ class UserTest < ActiveSupport::TestCase
   test "display name" do
     assert_not_equal users(:aaron).display_name, users(:aaron).login
     assert_equal "sam", users(:sam).display_name
+    # login overrules display_name when it is not present
+    users(:aaron).update_attributes :display_name => ''
+    assert_equal users(:aaron).login, users(:aaron).display_name
+    users(:aaron).update_attributes :display_name => nil
+    assert_equal users(:aaron).login, users(:aaron).display_name
   end
   
   test "first user becomes admin" do
@@ -30,7 +35,16 @@ class UserTest < ActiveSupport::TestCase
       u.login = login
       assert ! u.valid?
     end
-    
   end
-
+  
+  test "login token" do
+    assert_nil users(:aaron).login_key
+    assert_nil users(:aaron).login_key_expires_at
+    users(:aaron).reset_login_key!
+    puts users(:aaron).login_key.length
+    assert users(:aaron).login_key.length == 32
+    assert users(:aaron).login_key_expires_at < Time.now.utc+1.year+1.minute
+    assert users(:aaron).login_key_expires_at > Time.now.utc+1.year-1.minute
+  end
+  
 end
