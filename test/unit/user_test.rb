@@ -40,8 +40,8 @@ class UserTest < ActiveSupport::TestCase
   test "login token" do
     assert_nil users(:aaron).login_key
     assert_nil users(:aaron).login_key_expires_at
+    
     users(:aaron).reset_login_key!
-    puts users(:aaron).login_key.length
     assert users(:aaron).login_key.length == 32
     assert users(:aaron).login_key_expires_at < Time.now.utc+1.year+1.minute
     assert users(:aaron).login_key_expires_at > Time.now.utc+1.year-1.minute

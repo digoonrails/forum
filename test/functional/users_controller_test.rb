@@ -30,11 +30,19 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    get :edit, id: @user.to_param
+    login_as :aaron
+    get :edit, id: users(:aaron).id
     assert_response :success
   end
 
+  test "should require valid user" do
+    login_as :sam
+    get :edit, :id => users(:aaron).id
+    assert_redirected_to login_path
+  end
+  
   test "should update user" do
+    login_as :aaron
     put :update, id: @user.to_param, user: @user.attributes
     assert_redirected_to user_path(assigns(:user))
   end

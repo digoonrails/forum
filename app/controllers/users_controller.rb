@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :login_required,  :only => [:edit, :update, :destroy, :admin]
+  before_filter :find_user,       :only => [:edit, :update, :destroy, :admin]
   # GET /users
   # GET /users.json
   def index
@@ -80,4 +82,9 @@ class UsersController < ApplicationController
       format.json { head :ok }
     end
   end
+  
+  protected
+    def find_user
+      @user = params[:id] ? User.find(params[:id]) : current_user
+    end
 end

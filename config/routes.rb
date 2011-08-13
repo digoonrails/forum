@@ -1,5 +1,12 @@
 Forum::Application.routes.draw do
+  get "sessions/new"
+
+  get "create/destroy"
+
   resources :users
+  
+  match "login" => "sessions#new"
+  match "logout" => "sessions#destroy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
