@@ -7,7 +7,7 @@ require 'rails/all'
 # or test environments.
 Bundler.require *Rails.groups(:assets) if defined?(Bundler)
 
-module Forum
+module ForumApp
   class Application < Rails::Application
     require "#{Rails.root}/app/models/settings"
     

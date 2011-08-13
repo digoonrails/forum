@@ -1,4 +1,4 @@
-Forum::Application.routes.draw do
+ForumApp::Application.routes.draw do
   get "sessions/new"
 
   get "create/destroy"
