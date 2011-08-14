@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   
   def login_required
     login_by_token unless logged_in?
-    redirected_to login_path unless logged_in? && authorized?
+    redirect_to login_path unless logged_in?
   end
   
   def login_by_token
@@ -32,12 +32,14 @@ class ApplicationController < ActionController::Base
     User.update_all ['last_seen_at = ?', Time.now.utc], ['id = ?', current_user.id] if logged_in?
   end
   
+  def last_login; session[:last_active] ? session[:last_active] : Time.now.utc; end
+  
   def current_user=(value)
     if @current_user = value
       session[:user_id] = @current_user.id
       # need to remover the unless RAILS_ENV when figure out how
       # to make this work with tests
-      session.model.user_id = @current_user.id unless RAILS_ENV=="test"
+      # session.model.user_id = @current_user.id unless RAILS_ENV=="test"
       session[:last_active] = @current_user.last_seen_at
       session[:topics] = session[:forums] = {}
       update_last_seen_at
@@ -49,4 +51,8 @@ class ApplicationController < ActionController::Base
   end
   
   def logged_in?; current_user != 0; end
+  
+  def admin?
+    logged_in? and current_user.admin?
+  end
 end
