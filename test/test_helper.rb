@@ -9,5 +9,13 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 
-  # Add more helper methods to be used by all tests here...
+  def login_as(user)
+    @request.session[:user_id] = user ? users(user).id : nil
+    @request.session[:topics] = {}
+  end
+  
+  def logout
+    @request.session[:user_id] = nil
+    @controller.instance_variable_set("@current_user", nil)
+  end
 end
