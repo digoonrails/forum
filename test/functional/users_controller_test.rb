@@ -30,16 +30,32 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get edit" do
-    login_as :aaron
-    get :edit, id: users(:aaron).id
+    login_as :sam
+    get :edit, id: users(:sam).id
     assert_response :success
   end
 
-  # test "should require valid user" do
-  #   login_as :sam
-  #   get :edit, :id => users(:aaron).id
-  #   assert_redirected_to login_path
-  # end
+  test "user not edit other user" do
+    login_as :sam
+    get :edit, :id => users(:aaron).id
+    assert_equal( users(:sam).id, assigns(:user).id )
+    assert_response :success
+  end
+  
+  test "admin can edit other user" do
+    login_as :aaron
+    get :edit, :id => users(:sam).id
+    assert_equal( users(:sam).id, assigns(:user).id )
+    assert_response :success
+  end
+  
+  test "user can not update other user" do
+    login_as :sam
+    put :update, id: users(:aaron).id, user: @user.attributes
+    assert_equal( users(:sam).id, assigns(:user).id )
+    assert_redirected_to user_path(assigns(:user))
+  end
+  
   
   test "should update user" do
     login_as :aaron
@@ -48,10 +64,10 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should destroy user" do
+    login_as :sam
     assert_difference('User.count', -1) do
       delete :destroy, id: @user.to_param
     end
-
     assert_redirected_to users_path
   end
 end
