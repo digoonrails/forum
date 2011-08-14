@@ -10,7 +10,9 @@ class User < ActiveRecord::Base
   before_create { |u| u.admin = true if User.count == 0 }
   
   def reset_login_key!
-    self.login_key = Digest::MD5.hexdigest( Time.now.to_s + self.password + rand(123456789).to_s ).to_s
+    key = Time.now.to_s << self.password << rand(123456789).to_s
+    self.login_key = Digest::MD5.hexdigest( key ).to_s
+    
     # this is not currently honored
     self.login_key_expires_at = Time.now.utc+1.year
     save!
