@@ -3,6 +3,7 @@
 %html{:xmls => "http://www.w3.org/1999/xhtml"}
   %head
     = yield :stylesheet
+    = stylesheet_link_tag 'top'
     
     = csrf_meta_tag
 
@@ -13,6 +14,7 @@
       %meta{:name => 'description', :content => content_for(:meta_description) }
 
   %body
+    = render :partial => 'layouts/top'
     = yield
 
   = yield :javascript
