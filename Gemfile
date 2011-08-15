@@ -12,10 +12,6 @@ gem 'rails3-generators', '0.17.4'
 
 gem 'simple_form', '1.4.2'
 
-gem 'jammit', '0.6.3'
-gem 'yui-compressor', '0.9.6'
-gem 'closure-compiler', '1.1.1'
-
 gem 'settingslogic', '2.0.6'
 
 gem 'friendly_id', '3.2.1.1'
