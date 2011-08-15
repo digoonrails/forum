@@ -1,0 +1,7 @@
+javascripts:
+  forum:
+    - app/assets/javascripts/application.js
+  
+stylesheets:
+  forum:
+    - public/stylesheets/application.css

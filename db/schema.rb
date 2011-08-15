@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(:version => 20110811040955) do
 
   create_table "blogs", :force => true do |t|
+    t.boolean  "restricted"
     t.string   "url"
     t.string   "rss"
     t.string   "author"

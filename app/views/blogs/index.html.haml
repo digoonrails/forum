@@ -1,0 +1,17 @@
+%h1 Blogs
+
+= link_to 'New blog', new_blog_path
+
+- unless @blogs.blank?
+  %table
+    %thead
+      %tr
+        %th Author
+        %th.actions
+    %tbody
+      - for blog in @blogs
+        %tr
+          %td= blog.author
+          %td.actions
+            = link_to 'Edit', edit_blog_path(blog)
+            = link_to 'Show', blog_path(blog)

@@ -1,6 +1,7 @@
 ForumApp::Application.routes.draw do
   root :to => 'forums#index'
   
+  resources :blogs
   resources :forums
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
