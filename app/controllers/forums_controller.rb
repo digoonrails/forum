@@ -1,4 +1,7 @@
 class ForumsController < ApplicationController
+  before_filter :login_required, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :only_admin!, :only => [:new]
+  
   # GET /forums
   # GET /forums.json
   def index
