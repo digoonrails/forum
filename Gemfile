@@ -9,6 +9,7 @@ gem 'haml', '3.1.2'
 gem 'sass', '3.1.4'
 
 gem 'rails3-generators', '0.17.4'
+gem "responders", '0.6.4'
 
 gem 'simple_form', '1.4.2'
 
