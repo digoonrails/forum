@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless logged_in?
   end
   
+  def only_admin!
+    redirect_to login_path unless logged_in? && admin?
+  end
+  
   def login_by_token
     if !logged_in? && cookies[:login_token]
       self.current_user=User.find_by_id_and_login_key(*cookies[:login_token].split(";"))
@@ -55,4 +59,5 @@ class ApplicationController < ActionController::Base
   def admin?
     logged_in? and current_user.admin?
   end
+
 end

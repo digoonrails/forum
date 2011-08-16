@@ -9,6 +9,7 @@ gem 'haml', '3.1.2'
 gem 'sass', '3.1.4'
 
 gem 'rails3-generators', '0.17.4'
+gem "responders", '0.6.4'
 
 gem 'simple_form', '1.4.2'
 
@@ -48,4 +49,8 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'factory_girl_rails'
+  
+  gem 'capybara', "1.0.1"
+  gem 'database_cleaner', "0.6.7" 
+  gem 'cucumber-rails', "1.0.2"
 end

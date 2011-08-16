@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  description: MyString
+rails:
+  id: 1
+  name: rails
   position: 1
-  topics_count: 1
-  posts_count: 1
+  topics_count: 2
+  posts_count: 4
 
-two:
-  name: MyString
-  description: MyString
-  position: 1
-  topics_count: 1
-  posts_count: 1
+comics:
+  id: 2
+  name: comics
+  position: 2
+  topics_count: 0
+  posts_count: 0
