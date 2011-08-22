@@ -33,29 +33,7 @@ class UsersControllerTest < ActionController::TestCase
     login_as :sam
     get :edit, id: users(:sam).id
     assert_response :success
-  end
-
-  test "user not edit other user" do
-    login_as :sam
-    get :edit, :id => users(:aaron).id
-    assert_equal( users(:sam).id, assigns(:user).id )
-    assert_response :success
-  end
-  
-  test "admin can edit other user" do
-    login_as :aaron
-    get :edit, :id => users(:sam).id
-    assert_equal( users(:sam).id, assigns(:user).id )
-    assert_response :success
-  end
-  
-  test "user can not update other user" do
-    login_as :sam
-    put :update, id: users(:aaron).id, user: @user.attributes
-    assert_equal( users(:sam).id, assigns(:user).id )
-    assert_redirected_to user_path(assigns(:user))
-  end
-  
+  end  
   
   test "should update user" do
     login_as :aaron

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_filter :login_required,  :only => [:edit, :update, :destroy, :admin]
   before_filter :find_user,       :only => [:edit, :update, :destroy, :admin]
 
   respond_to :html

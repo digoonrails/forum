@@ -3,26 +3,8 @@
 aaron:
   id: 1
   login: aaron
-  display_name: Aaron Stack
-  email: aaron@email.com
-  password: testy
-  admin: true
-  posts_count: 2
-  created_at: <%= 5.days.ago.to_s :db %>
-  last_login_at: <%= 5.minutes.ago.to_s :db %>
-  last_seen_at: <%= 5.minutes.ago.to_s :db %>
-  
   
 sam:
   id: 2
   login: sam
-  display_name: sam
-  email: sam@email.com
-  password: testy
-  admin: false
-  posts_count: 2
-  created_at: <%= 4.days.ago.to_s :db %>
-  last_login_at: <%= 4.minutes.ago.to_s :db %>
-  last_seen_at: <%= 4.minutes.ago.to_s :db %>
-  login_key: 8305f94ab2b92f99137abbc235ee28e5
-  login_key_expires_at: <%= Time.now.utc + 1.week %>
+
