@@ -1,7 +1,5 @@
 ForumApp::Application.routes.draw do
-  root :to => 'forums#index'
-  resources :forums
-  resources :users
+  root :to => 'forums#index'  resources :users
   resources :sessions, :only => [:new, :create, :destroy]
   
   match "login" => "sessions#new"
